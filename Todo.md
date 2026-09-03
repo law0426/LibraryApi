@@ -1,5 +1,7 @@
 TODO:
 
+Return item.
+
 Build container classes. Convert for DB use later.
 POCO? Need to simplify them later for DB conversion.
 
@@ -39,7 +41,7 @@ ran test for borrowing. We're in green.
 
 Next test:
 Borrow fails if already borrowed.
-
+Setup test for return:
 Return.
 
 ======================NOTES:=====================
@@ -48,4 +50,3 @@ I had already built the exception ahead of test. I feel like this way of working
 I need to slow my roll I guess.
 Which will make it take even longer.
 FML. And then there's understanding the syntax for the assertions. I have to look up a lot.
-

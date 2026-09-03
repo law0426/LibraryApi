@@ -22,12 +22,22 @@ public class UnitTest1
     public void Book_WillNotBeBorrowed_IfAlreadyBorrowed()
     {
         //Arrange
-        List<Book> books = new List<Book>();
-        books.Add(new Book("Book1"));
+         Book book = new("Book1");
         //Act
-        Book book = books[0];
         book.Borrow();
         //Assert.
         Assert.Throws<InvalidOperationException>(() => book.Borrow());
     }
+    [Fact]
+    public void Book_CanBeReturned_AndSet_BorrowedToFalse()
+    {
+        //Arrange
+         Book book = new("Book1");
+         book.Borrow();
+        //Act
+        book.Return();
+        //Assert.
+        Assert.False(book.Borrowed);
+    }
+
 }
