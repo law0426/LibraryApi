@@ -11,8 +11,13 @@ public class Book
         Borrowed = false;
     }
 
-    // public Borrow()
-    // {
-    //     if(Borrowed == tr)
-    // }
+    public void Borrow()
+    {
+        if(Borrowed == true)
+        {
+            throw new InvalidOperationException("Book is already borrowed");
+        }
+        else Borrowed = true;
+    }
+    
 }
