@@ -43,6 +43,8 @@ Next test:
 Borrow fails if already borrowed.
 Setup test for return:
 Return.
+Create: User.
+User can add book to their profile when borrwing.
 
 ======================NOTES:=====================
 
@@ -52,3 +54,14 @@ Which will make it take even longer.
 FML. And then there's understanding the syntax for the assertions. I have to look up a lot.
 I feel like I'm being punished for thinking ahead.
 Who thought this was a good idea?
+
+======================= BRAINSTORM: =============================
+Where do I want to store information?
+
+on the one hand, it's nice to be able to look up the user and see their book history.
+
+on the other hand, in case the profile disappears, it'd be nice to store the ID on the book lending history.
+With dates as well.
+
+But I'm supposed to ignore this planning and pretend I'm stupid just to use xunit and give it
+credit for any revelations in development?

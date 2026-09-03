@@ -7,4 +7,5 @@ Api portion will handle borrow and return requests.
 
 
 Book object will contain:
-1) 
+1) title
+2) borrowed state
