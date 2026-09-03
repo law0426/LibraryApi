@@ -56,7 +56,7 @@ public class UnitTest1
         Book book = new("Book1");
         User user = new("Bob");
 
-        User.Receive(book);
+        user.Receive(book);
         
         //Assert.
         Assert.NotEmpty(user.books);
