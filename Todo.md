@@ -93,6 +93,41 @@ that would be what the todo context did in my previous project.
 THEN after setting up a service, link the behaviour to a controller?
 Then test the controller? What does a controller test even look like? I have to use client interactions then, don't I?
 
+================ Testing for WebApi========================
+What is the problem?
+
+What am I testing?
+Behaviour.
+Which ones?
+Services
+Controller
+URL?
+
+What do I have access to?
+Services
+-No problem
+Controllers
+-Can call directly - but not the natural environment
+-Call via http? - has to be simulated. Use client?
+-Server also need to be up to have something to connect to
+-so I need to launch a server, and create a client.
+-And then start interactions
+
+How easily can I set up this sort of test environment?
+Can I just run the program.cs app as a server in the test?
+
+OVERVIEW OF THE REQUIREMENTS:
+
+AM I ACTUALLY MAKING THE API PORTION?
+OR JUST DESCRIBING IT?
+
+It looks like they mean we just summarize the interactions without implementation?
+As in pseudocoding?
+But then they still want us to test it?
+
 ISSUES:
 Should BORROWED be a book parameter when the user can add books to their profile?
 This is a library-side value.but also, bloats the system, and requires more classes etc.
+
+
+PRETTIER CANNOT FORMAT C#?!
