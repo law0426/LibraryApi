@@ -19,5 +19,10 @@ public class Book
         }
         else Borrowed = true;
     }
+
+    public void Return()
+    {
+        Borrowed = false;
+    }
     
 }

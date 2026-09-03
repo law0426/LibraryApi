@@ -50,3 +50,5 @@ I had already built the exception ahead of test. I feel like this way of working
 I need to slow my roll I guess.
 Which will make it take even longer.
 FML. And then there's understanding the syntax for the assertions. I have to look up a lot.
+I feel like I'm being punished for thinking ahead.
+Who thought this was a good idea?

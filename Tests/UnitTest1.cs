@@ -40,4 +40,13 @@ public class UnitTest1
         Assert.False(book.Borrowed);
     }
 
+    [Fact]
+    public void Book_ThrowsError_WhenReturningUnborrowedBook()
+    {
+        //Arrange
+        Book book = new("Book1");
+        
+        //Assert.
+        Assert.Throws<InvalidOperationException>(()=>book.Return());
+    }
 }
