@@ -33,3 +33,19 @@ Alt det er en sequence, så det telles som "hovedflyten"?
 Weird use of MVP.
 Sliter også med terminologibruken
 MVP er det minste featuresettet man forventer at en bruker er villig til å betale for. En halvferdig backend med en single call stack tror jeg ikke noen ville betalt for lol.
+
+=====================WORK LOG============================
+ran test for borrowing. We're in green.
+
+Next test:
+Borrow fails if already borrowed.
+
+Return.
+
+======================NOTES:=====================
+
+I had already built the exception ahead of test. I feel like this way of working is counterintuitive.
+I need to slow my roll I guess.
+Which will make it take even longer.
+FML. And then there's understanding the syntax for the assertions. I have to look up a lot.
+
