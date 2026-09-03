@@ -6,16 +6,16 @@ public class User
     //Just string.
     //And List of books they're borrowing.
     public string Name{get;}
-    public List<Book> books{get;}
+    public List<Book> Books{get;}
     
     public User(string name)
     {
         Name = name;
-        books = [];
+        Books = [];
     }
 
     public void Receive(Book book)
     {
-        books.Add(book);
+        Books.Add(book);
     }
 }

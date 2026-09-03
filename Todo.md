@@ -7,6 +7,8 @@ POCO? Need to simplify them later for DB conversion.
 
 all code can be moved around later.
 
+Formatter: Prettier not working. Why? Or rather, works where I don't want it, viceversa.
+
 Part 1:
 
 Hvilket problem løser systemet?
@@ -44,7 +46,10 @@ Borrow fails if already borrowed.
 Setup test for return:
 Return.
 Create: User.
-User can add book to their profile when borrwing.
+User can add book to their profile when borrowing.
+User receiving book RED=>GREEN. DONE.
+
+Can I already apply this to API?
 
 ======================NOTES:=====================
 
@@ -54,6 +59,12 @@ Which will make it take even longer.
 FML. And then there's understanding the syntax for the assertions. I have to look up a lot.
 I feel like I'm being punished for thinking ahead.
 Who thought this was a good idea?
+I think I skipped steps again. Should've tested if user can be built.
+Then check if name is correct.
+Then check if book can be added.
+
+I've been told I don't have to be excessively incremental.
+I'll try to use my own judgement and test what I find to be important.
 
 ======================= BRAINSTORM: =============================
 Where do I want to store information?
@@ -65,3 +76,8 @@ With dates as well.
 
 But I'm supposed to ignore this planning and pretend I'm stupid just to use xunit and give it
 credit for any revelations in development?
+
+ISSUES:
+Should BORROWED be a book parameter when the user can add books to their profile?
+This is a library-side value.but also, bloats the system, and requires more classes etc.
+

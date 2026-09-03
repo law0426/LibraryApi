@@ -59,7 +59,7 @@ public class UnitTest1
         user.Receive(book);
         
         //Assert.
-        Assert.NotEmpty(user.books);
-        Assert.Equal(book, user.books[0]);
+        Assert.NotEmpty(user.Books);
+        Assert.Equal(book, user.Books[0]);
     }
 }
