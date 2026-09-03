@@ -1,8 +1,8 @@
-﻿using Core;
+﻿using Core.models;
 
 namespace Tests;
 
-public class UnitTest1
+public class CoreTests
 {
     [Fact]
     public void Book_CanBeAded_AndBorrowed()

@@ -1,4 +1,4 @@
-﻿namespace Core;
+﻿namespace Core.models;
 
 public class Book
 {

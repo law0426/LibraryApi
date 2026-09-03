@@ -77,7 +77,22 @@ With dates as well.
 But I'm supposed to ignore this planning and pretend I'm stupid just to use xunit and give it
 credit for any revelations in development?
 
+What else needs to be tested?
+
+We need to check we reach the server? I can't run that at the same time? yes I can. Run it as a task lol?
+
+that'd be crazy.
+
+Ok, what about the services. Look over how I set up the controllers and services last time. I think I need a starting point.
+
+First thing is we send a Get Request.??
+
+No. First step is interactin directly with the service. AKA, using a task. In my context,
+that would be what the todo context did in my previous project.
+
+THEN after setting up a service, link the behaviour to a controller?
+Then test the controller? What does a controller test even look like? I have to use client interactions then, don't I?
+
 ISSUES:
 Should BORROWED be a book parameter when the user can add books to their profile?
 This is a library-side value.but also, bloats the system, and requires more classes etc.
-
