@@ -49,4 +49,17 @@ public class UnitTest1
         //Assert.
         Assert.Throws<InvalidOperationException>(()=>book.Return());
     }
+    [Fact]
+    public void User_CanReceiveBook_AndBookMatches()
+    {
+        //Arrange
+        Book book = new("Book1");
+        User user = new("Bob");
+
+        User.Receive(book);
+        
+        //Assert.
+        Assert.NotEmpty(user.books);
+        Assert.Equal(book, user.books[0]);
+    }
 }
