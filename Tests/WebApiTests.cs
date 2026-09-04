@@ -35,4 +35,12 @@ public class WebApiTests
         // Assert
         Assert.NotNull(book);
     }
+
+    [Fact]
+    public async Task HTTPHealth_ReturnsOk()
+    {
+        var client = new HttpClient();
+        var response = await client.GetAsync("http://localhost:5288/health");
+        Assert.True(response.IsSuccessStatusCode);
+    }
 }
