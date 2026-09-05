@@ -23,4 +23,16 @@ public class LibraryService : ILibraryService
     {
         throw new NotImplementedException();
     }
+
+    public async Task<Book> PostBookAsync(Book book)
+    {
+        return await library.RegisterBook(book);
+
+        //TODO: Async code comparison for future adaptation below:
+        // var newBookRegistration = new Book(book.Title);
+        // var newTask = new UserTask(/*++_nextId,*/ title, description,dueDate);
+        // await Tasks.AddAsync(newTask);
+        // await SaveChangesAsync();
+        // return newTask;
+    }
 }

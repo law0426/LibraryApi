@@ -6,6 +6,13 @@ public class Library
     public List<User> Users{get;}
     public List<Book> Books{get;}
 
+    public async Task<Book> RegisterBook(Book book)
+    {
+        Book registeredBook = book;
+        Books.Add(registeredBook);
+        return(registeredBook);
+    }
+
     // public bool Borrowed{get; private set;}
 
     // public Book(string title){

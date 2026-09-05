@@ -62,4 +62,17 @@ public class CoreTests
         Assert.NotEmpty(user.Books);
         Assert.Equal(book, user.Books[0]);
     }
+    [Fact]
+    public async Task Library_CanRegisterBook_AndLibraryBooksAreNotEmpty()
+    {
+        //Arrange
+        Library library = new();
+        Book book = new("Book1");
+
+        Book registeredBook;
+        registeredBook = await library.RegisterBook(book);
+        //Assert.
+        Assert.NotEmpty(library.Books);
+        Assert.Equal(book, registeredBook);
+    }
 }

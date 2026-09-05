@@ -1,32 +1,15 @@
 TODO:
 
-Going to use the HTTPHealth_ReturnsOk test and see if I can consistently
-use this formula to test my API project.
-This requires building the controller?
-I'm doing this ahead of building services, which might be a bit backwards, but that's what I find most important.
-Test: Red. I cannot connect to the localhost. The target machine actively refused it.
-
-Since I can't track down how the example test succeeded in the first place,
-and I keep getting told I either have to run in parallel, I'm giving up on that.
-
-I've set up the Factory test environment.
-I'm getting error. I can't tell if it's due to the address not working or something else. Frustrating.
-Will setup controller to make sure it works?
-
-I was hoping the logger could help me since despite the wall of text, I can't actually track the call stack
-And since the logger doesn't activate, I have to assume, I'm not going the correct path.
-Is there a way for me to know the function route as well as the route I'm actually calling?
-Everything's implicit, and completely unhelpful.
-
-of course I spent ages because I forgot to build the controller and map it.
 
 
-Next is building the Service linking the library.
-But in order to get any data from library we need to be able to add to it.
-So I need to add a Create Book.
+Now Linking PostBook controller to Library RegisterBook() service.
+Can we return created value?
+Created links. Problem is testing this way Makes it unclear where the error is.
+If I had a better understanding of how to interact with the http controller systems,
+I might not have these issues. But I think I need to reduce the tests now just to 
+ensure the error isn't deeper.
 
-I had to add Json usage to test. - well, it was recommended.
-Will now see how that goes.
+Stuck on nullreference error. Don't know what causes it. Might be some issue with await.
 
 
 
@@ -81,7 +64,33 @@ Create: User.
 User can add book to their profile when borrowing.
 User receiving book RED=>GREEN. DONE.
 
+Going to use the HTTPHealth_ReturnsOk test and see if I can consistently
+use this formula to test my API project.
+This requires building the controller?
+I'm doing this ahead of building services, which might be a bit backwards, but that's what I find most important.
+Test: Red. I cannot connect to the localhost. The target machine actively refused it.
 
+Since I can't track down how the example test succeeded in the first place,
+and I keep getting told I either have to run in parallel, I'm giving up on that.
+
+I've set up the Factory test environment.
+I'm getting error. I can't tell if it's due to the address not working or something else. Frustrating.
+Will setup controller to make sure it works?
+
+I was hoping the logger could help me since despite the wall of text, I can't actually track the call stack
+And since the logger doesn't activate, I have to assume, I'm not going the correct path.
+Is there a way for me to know the function route as well as the route I'm actually calling?
+Everything's implicit, and completely unhelpful.
+
+of course I spent ages because I forgot to build the controller and map it.
+
+
+Next is building the Service linking the library.
+But in order to get any data from library we need to be able to add to it.
+So I need to add a Create Book.
+
+I had to add Json usage to test. - well, it was recommended.
+Will now see how that goes.
 
 
 
