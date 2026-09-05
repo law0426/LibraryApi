@@ -4,7 +4,9 @@
 
 namespace Tests;
 
+using Core.Models;
 using Microsoft.AspNetCore.Mvc.Testing; 
+using System.Net.Http.Json;
 //dotnet add MyApi.Tests package Microsoft.AspNetCore.Mvc.Testing
 
 
@@ -22,6 +24,14 @@ public class UsersTests : IClassFixture<ApiFactory>
     public async Task GetUsers_ReturnsOk()
     {
         var response = await _client.GetAsync("/Library/users");
+        Console.WriteLine(response);
+        response.EnsureSuccessStatusCode();
+    }
+    [Fact]
+    public async Task PostBook_ReturnsCreated()
+    {
+        Book book = new Book("Book1");
+        var response = await _client.PostAsJsonAsync("/Library/books", book);
         Console.WriteLine(response);
         response.EnsureSuccessStatusCode();
     }
