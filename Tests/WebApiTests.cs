@@ -21,8 +21,8 @@ public class UsersTests : IClassFixture<ApiFactory>
     [Fact]
     public async Task GetUsers_ReturnsOk()
     {
-        var response = await _client.GetAsync("/api/users");
-
+        var response = await _client.GetAsync("/Library/users");
+        Console.WriteLine(response);
         response.EnsureSuccessStatusCode();
     }
 }

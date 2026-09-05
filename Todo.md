@@ -13,6 +13,18 @@ I've set up the Factory test environment.
 I'm getting error. I can't tell if it's due to the address not working or something else. Frustrating.
 Will setup controller to make sure it works?
 
+I was hoping the logger could help me since despite the wall of text, I can't actually track the call stack
+And since the logger doesn't activate, I have to assume, I'm not going the correct path.
+Is there a way for me to know the function route as well as the route I'm actually calling?
+Everything's implicit, and completely unhelpful.
+
+of course I spent ages because I forgot to build the controller and map it.
+
+
+Next is building the Service linking the library.
+But in order to get any data from library we need to be able to add to it.
+So I need to add a Create Book.
+
 
 
 
