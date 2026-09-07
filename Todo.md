@@ -11,10 +11,86 @@ ensure the error isn't deeper.
 
 Stuck on nullreference error. Don't know what causes it. Might be some issue with await.
 
+I wanted to see if I could add an object like it had its values exposed, but I think I need to give up on that.
+The MVP used just a simple string to add a book. Do that for now.
 
+
+
+``SIDEQUESTS:``
+
+`PostBook();`
+TODO: Actually understand the point and function of a DTO. This is probably what I need.
+It was just confusing since I think we used some JSON stuff for DTOS, and don't actually know
+what my options are - I've no idea how flexible this part is.
+
+`Markup Language`
+Would be nice to make these documents more readable.
+
+``ISSUES?``
+``Library Model``
+Library is halfway between a service an a model. I don't know what to do about it.
+I technically want to store data in it. But it also makes sense to have functions on it.
+Otherwise I have to leave variables exposed for the library service - which I don't want?
+I don't think I have clear understanding of how to balance keeping things safe, and segregated.
+
+`TDD flow`
+I've deviated a lot from the original mold, which makes sense to me when it's part of development
+but don't know if I'll be penalized for it.
+EG. I decided I need to add the PostBook feature in order to properly test the GetBook feature.
+
+`definitions`
+I still struggle with some of the nomenclature.
+I don't like having a vague understanding of MVP and "main flow"
+when I'm going to be graded on it.
+Because I couldn't get clarity on some things from the beginning, like
+Verification that my project even theoretically fits the criteria,
+I've just been shooting the dark.
 
 
 ======================================
+
+`Part 5 Summary:`
+Controllers that link to the domain logic.
+AKA, controllers, to services to models.
+
+"Don't make new functions just for the API"
+Except I already did because I don't feel like I can test the get requests without post.
+
+When green, test with Scalar.
+Ensure responses match part 3 definitions. 
+
+So I still don't understand the expected structure for testing the API and getting them green.
+And then if I've done that - why using Scalar afterwards?
+Do they mean Calling the controllers?
+Using client?
+Factory?
+Call the services?
+Social services because I need help?
+It'd be nice to know how many layers of errors I'm supposed to expect to have to sift through
+Before I make a guess and am up to neck and beyond in ones I wasn't supposed to even have in the first place.
+
+
+
+`Part 4 Summary:`
+Make tests the describe API behaviour.
+Checklist:
+GetUsersAsync();
+GetBooksAsync();
+PostBookAsync();
+
+
+
+Part 3 Summary:
+API.md or readm.md, describing the API?
+What descriptions are required?:
+Endpoint? - Controllers? - HTTP Methods.
+Input data. - Data transfer objects?
+Return values. Status codes.
+
+
+
+
+
 Return item.
 
 Build container classes. Convert for DB use later.
@@ -34,6 +110,7 @@ Hva er minimum for at systemet gir mening?
 
 Hold MVP-en avgrenset til én hovedflyt (end-to-end).
 Hovedflyten kan bestå av flere steg og operasjoner, men skal dekke én konkret brukeroppgave fra start til slutt.
+
 Så er det de mener, f.eks:
 (forgive the goofy order)
 

@@ -19,30 +19,8 @@ EndPoints
 ACTION:         Return:      REQUEST:    RESPONSE:    ERROR:    INPUT:    
 GetBooks();     List<Book>   GET         200Ok        404?      N/A
 GetBook();      <Book>       Get         200ok        404       String;
-Register();     N/A          POST        201CREATED   dunno               
+PostBook();     N/A          POST        201CREATED   400?      String;          
 
 
-Beskriv:
 
-Hvilke endepunkter trenger API-et?
-Hvilke HTTP-metoder skal brukes?
-GET
-POST
-PATCH
-DELETE
-Hvilke data skal klienten sende inn?
-Hva skal API-et returnere?
-Hvilke HTTP-statuskoder skal brukes?
-Det holder med å skrive noe som for eksempel dette:
-
-POST /players
-Request: { "name": "Ole" }
-Response: 201 Created
-
-PATCH /players/{id}/xp
-Request: { "amount": 100 }
-Response: 200 OK
-
-GET /players/{id}
-Response: 200 OK
 
