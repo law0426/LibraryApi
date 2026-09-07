@@ -9,15 +9,15 @@ public class LibraryService : ILibraryService
 {
     Library library = new();
 
-    public LibraryService(bool testing)
-    {
-        if (testing)
-        {
-            //initialize with test values;
-            Console.WriteLine("LibraryService(1); Initialized. TEST ENVIRONTMENT DETECTED.");
-            Console.WriteLine("Initializing Library with test values.");
-        }
-    }
+    // public LibraryService(bool testing)
+    // {
+    //     if (testing)
+    //     {
+    //         //initialize with test values;
+    //         Console.WriteLine("LibraryService(1); Initialized. TEST ENVIRONTMENT DETECTED.");
+    //         Console.WriteLine("Initializing Library with test values.");
+    //     }
+    // }
 
     public Task<IEnumerable<User>> GetUsersAsync()
     {

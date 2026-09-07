@@ -68,9 +68,11 @@ public class CoreTests
         //Arrange
         Library library = new();
         Book book = new("Book1");
+        Console.WriteLine("1 " + book.Title); 
 
         Book registeredBook;
-        registeredBook = await library.RegisterBook(book);
+        registeredBook = await library.RegisterBook(book); //is await not working - why we getting null reference?
+        Console.WriteLine("4 registered: " + book.Title); 
         //Assert.
         Assert.NotEmpty(library.Books);
         Assert.Equal(book, registeredBook);

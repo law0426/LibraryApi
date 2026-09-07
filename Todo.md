@@ -2,6 +2,21 @@ TODO:
 
 
 
+
+`PostBook()`
+
+1) CONVERT ARGUMENT TO STRING.
+
+Current error:
+Object reference not set to an instance of an object.
+Even interacting directly with the model, is causing issues. How.
+I think my list doesn't exist lol. FML. never initialized.
+
+using the factory post, I'm faced with a different issue: convert it to http content.
+
+
+`Notes:`
+
 Now Linking PostBook controller to Library RegisterBook() service.
 Can we return created value?
 Created links. Problem is testing this way Makes it unclear where the error is.
@@ -25,6 +40,11 @@ what my options are - I've no idea how flexible this part is.
 
 `Markup Language`
 Would be nice to make these documents more readable.
+
+`proper usage: Constructors and privacy settings`
+I think I need to just leave everything public in my classes until I understand the proper way of exposing
+and constructing the variables. Because I've seen so many ways that confuse me.
+
 
 ``ISSUES?``
 ``Library Model``
