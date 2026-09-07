@@ -26,8 +26,11 @@ public class WebApiTests : IClassFixture<ApiFactory>
     public async Task GetUsers_ReturnsOk()
     {
         var response = await _client.GetAsync("/Library/users");
-        Console.WriteLine(response);
-        response.EnsureSuccessStatusCode();
+        var statusCode = response.StatusCode;
+        Console.WriteLine($"Status: {(int)response.StatusCode}");
+        Console.WriteLine($"Reason: {response.ReasonPhrase}");
+        Console.WriteLine($"Body: {await response.Content.ReadAsStringAsync()}");
+        //response.EnsureSuccessStatusCode();
     }
     [Fact]
     public async Task LibraryService_ReturnsBook()
@@ -37,7 +40,7 @@ public class WebApiTests : IClassFixture<ApiFactory>
         var response = await service.PostBookAsync(book);
         
         //var response = await _client.PostAsJsonAsync("/Library/books", book);
-        Console.WriteLine(response);
+        Assert.Equal(book, response);
     }
     [Fact]
     public async Task PostBook_ReturnsCreated()

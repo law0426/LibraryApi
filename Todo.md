@@ -8,7 +8,17 @@ I can't use it.
 This is too much of a bottle neck. I have to give up on the project and just harass an AI
 to explain how it works and how to use it.
 
+POSSIBLE ISSUES:
+Client isn't created properly
+factory isn't created properly
+apifactory file isn't created properly
+apitest IClassFixture<ApiFactory> interface inheritence isn't right.
+Endpoint is wrong.
+Every line in the eactual test could be wrong.
+Server simulation doesn't launch.
+Client doesn't even reach a client.
 
+this is way too much.
 
 
 
@@ -74,6 +84,10 @@ when I'm going to be graded on it.
 Because I couldn't get clarity on some things from the beginning, like
 Verification that my project even theoretically fits the criteria,
 I've just been shooting the dark.
+
+`LEARNED`
+Whatever the library controller inherits needs to be added as a service - as a possible singleton
+So in this case, IlibraryService was needed.
 
 
 ======================================

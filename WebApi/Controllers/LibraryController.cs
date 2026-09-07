@@ -10,7 +10,7 @@ namespace WebApi.Controllers;
 public class LibraryController(ILibraryService libraryService, ILogger<LibraryController> logger) : ControllerBase
 {
     [HttpGet("users")]
-    public async Task<IActionResult> GetAsync()
+    public async Task<IActionResult> GetUsersAsync()
     {
         logger.LogInformation("Received Get request on 'user' route!");
         return Ok();

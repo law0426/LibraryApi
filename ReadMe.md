@@ -14,7 +14,10 @@ Book object will contain:
 
 API:
 
-EndPoints
+EndPoints:
+Get - Library/users
+Get - Library/books
+Post - Library/books
 
 ACTION:         Return:      REQUEST:    RESPONSE:    ERROR:    INPUT:    
 GetBooks();     List<Book>   GET         200Ok        404?      N/A
