@@ -15,11 +15,8 @@ public class Library
 
     public async Task<Book> RegisterBook(Book book)
     {
-        Console.WriteLine("2 "+book.Title); 
         Book registeredBook = book;
-        Console.WriteLine("3 registered" + registeredBook.Title); 
         Books.Add(registeredBook);
-        Console.WriteLine("3.5  from book list" + Books[0]); 
         return(registeredBook);
     }
 

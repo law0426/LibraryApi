@@ -1,5 +1,14 @@
 TODO:
 
+Hold on, my GetUsers_ReturnsOk
+Now fails?
+Didn't this work before? What is happening now?
+The ApiFactory is just Completely impenetrable in tracking down issues.
+I can't use it.
+This is too much of a bottle neck. I have to give up on the project and just harass an AI
+to explain how it works and how to use it.
+
+
 
 
 

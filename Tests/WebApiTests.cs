@@ -13,11 +13,11 @@ using WebApi.Services;
 
 
 
-public class UsersTests : IClassFixture<ApiFactory>
+public class WebApiTests : IClassFixture<ApiFactory>
 {
     private readonly HttpClient _client;
 
-    public UsersTests(ApiFactory factory)
+    public WebApiTests(ApiFactory factory)
     {
         _client = factory.CreateClient();
     }
@@ -33,19 +33,18 @@ public class UsersTests : IClassFixture<ApiFactory>
     public async Task LibraryService_ReturnsBook()
     {
         Book book = new Book("Book1");
-        //Library service.registerbook. 
-        // LibraryService service = new LibraryService();
-        // var response = await service.PostBookAsync(book);
-        var response = await _client.PostAsJsonAsync("/Library/books", book);
-        Console.WriteLine(response);
+        LibraryService service = new LibraryService();
+        var response = await service.PostBookAsync(book);
         
+        //var response = await _client.PostAsJsonAsync("/Library/books", book);
+        Console.WriteLine(response);
     }
     [Fact]
     public async Task PostBook_ReturnsCreated()
     {
         Book book = new Book("Book1");
         var response = await _client.PostAsJsonAsync("/Library/books", book);
-        Console.WriteLine(response);
+        Console.WriteLine(" WE FOUND THE THING: " + response);
         // Assert.Equal(); 
         response.EnsureSuccessStatusCode();
     }
