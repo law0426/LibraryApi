@@ -8,6 +8,7 @@ using Core.Models;
 using Microsoft.AspNetCore.Mvc.Testing; 
 using System.Net.Http.Json;
 using WebApi.Services;
+using System.Net;
 
 //dotnet add MyApi.Tests package Microsoft.AspNetCore.Mvc.Testing
 
@@ -50,6 +51,13 @@ public class WebApiTests : IClassFixture<ApiFactory>
         Console.WriteLine(" WE FOUND THE THING: " + response);
         // Assert.Equal(); 
         response.EnsureSuccessStatusCode();
+    }
+    [Fact]
+    public async Task GetHealth_ReturnsOk()
+    {
+        var response = await _client.GetAsync("/health");
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 }
 
