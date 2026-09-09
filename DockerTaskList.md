@@ -6,6 +6,14 @@ Building healthcheck test - but DOCKER COMPOSE must use it.
 Dockerfile:
 Made. Run?
 
+Except My Docker Desktop app which I'm apparently completely reliant on won't run properly
+Most likely due to admin privileges, which I haven't received after several months...
+What was supposed to be my most productive day is now likely my least productive day
+since i need to track error messages and see if I can find a way around an issue
+I shouldn't be having in the first place.
+
+I need to figure out if there's literally anything else I can do given this bottleneck.
+
 
 
 
