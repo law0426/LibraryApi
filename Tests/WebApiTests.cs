@@ -52,6 +52,7 @@ public class WebApiTests : IClassFixture<ApiFactory>
         // Assert.Equal(); 
         response.EnsureSuccessStatusCode();
     }
+    
     [Fact]
     public async Task GetHealth_ReturnsOk()
     {

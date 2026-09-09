@@ -1,4 +1,5 @@
-﻿using Core.Models;
+﻿using System.Net;
+using Core.Models;
 
 namespace Tests;
 

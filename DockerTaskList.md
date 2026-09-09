@@ -3,6 +3,10 @@
 
 Building healthcheck test - but DOCKER COMPOSE must use it.
 
+Dockerfile:
+Made. Run?
+
+
 
 
 `tasks`

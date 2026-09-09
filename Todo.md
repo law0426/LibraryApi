@@ -1,11 +1,13 @@
 TODO:
 
+TODOS CONTINUE IN DockerTaskList.md
+
+
+This is how far I got:
+
 ISSUE: too much time spent. Out of time.
 
-
 Add test: Post book and Get book matches.
-
-
 
 
 `BOTTLENECK DEBUG: Result: Add appropriate service singleton for controler: ILibraryService.`
