@@ -15,6 +15,12 @@ public class LibraryController(ILibraryService libraryService, ILogger<LibraryCo
         logger.LogInformation("Received Get request on 'user' route!");
         return Ok();
     }
+    [HttpGet("books")]
+    public async Task<IActionResult> GetBooksAsync()
+    {
+        logger.LogInformation("Received Get request on 'books' route!");
+        return Ok();
+    }
     [HttpPost("books")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     public async Task<IActionResult> PostBookAsync(Book book)

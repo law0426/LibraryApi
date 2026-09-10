@@ -18,23 +18,45 @@ I need to figure out if there's literally anything else I can do given this bott
 
 
 `tasks`
+``Part1: COMPLETE!``
+
+<details> 
+<summary>Task Details</summary>
 1) Make docker file. Sure.
-2) run api in docker-container. Look it up.
+2) run api in docker-container. <== The product file? Output? Nope; the launched image. the application?
 3) Run: 
     docker build -t navnet-på-ditt-api
     docker run -p 8080:8080 navnet-på-ditt-api
 -t means tag, just gives it a name.
--p?
+-p? Port.
 
-Part 2
+Your C# source code ``Base: source code``
+        ↓
+   Docker build ``action: via config``
+        ↓
+   Docker image ``result: file``
+   "webapi"
+        ↓
+   docker run   ``action: user launch or run``
+        ↓
+ Docker container ``result: process``
+   (running API)
+        ↓
+   Scalar / HTTP requests ``action: user interaction``
+</details>
+
+<Part2: 'incomplete'>
+<details>
+<summary>PostgreSQLizing</summary>
 Use PostgreSQL as database and get database image.
 confirm:
 1) API connects to database through connection string
 2) data can be stored
 3) data can be pulled
 4) data is persistent after API-container restarts.
+</details>
 
-Part 3
+<Part3: 'incomplete'>
 Add pgAdmin
 To make data more manageable, add pgAdmin to Docker Compose.
 Confirm:
@@ -44,8 +66,7 @@ Confirm:
 
 (Github as guide.)
 
-Part 4 Handin.
-
+<Part4_Handin: 'incomplete'>
 1) Commit changes to github repo
 2) find link to that specific commit (URL)
 3) hand in that commit.
