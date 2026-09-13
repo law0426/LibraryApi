@@ -5,6 +5,7 @@ public class User
     //Must contain what? Nvm id for now.
     //Just string.
     //And List of books they're borrowing.
+    public int Id { get; private set; }
     public string Name{get;}
     public List<Book> Books{get;}
     

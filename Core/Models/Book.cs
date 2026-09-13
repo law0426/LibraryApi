@@ -2,6 +2,7 @@
 
 public class Book
 {
+    public int Id { get; private set; }
 
     public string Title{get;}
     public bool Borrowed{get; private set;}
