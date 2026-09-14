@@ -1,5 +1,7 @@
 using WebApi.Services;
 using Scalar.AspNetCore;
+using Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,9 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddSingleton<ILibraryService, LibraryService>();
 builder.Services.AddHealthChecks();
+builder.Services.AddDbContext<LibraryDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

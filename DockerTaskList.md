@@ -1,6 +1,22 @@
 
 
 
+
+I'm currently trying to set up the postgresql functionality
+
+issues?
+I don't know if I'm doing things in the wrong order.
+This is very clearly part 2
+Yet, it seems a docker.yaml was created prior to this step in the example project
+
+Does this step rely on docker.yaml?
+what does docker.yaml actually do?
+since it manages the different services, it seems like I should do it afterwards.
+
+
+
+<details>
+
 Building healthcheck test - but DOCKER COMPOSE must use it.
 
 Dockerfile:
@@ -13,8 +29,7 @@ since i need to track error messages and see if I can find a way around an issue
 I shouldn't be having in the first place.
 
 I need to figure out if there's literally anything else I can do given this bottleneck.
-
-
+</details>
 
 
 `tasks`
@@ -107,6 +122,66 @@ Docker Compose:
 
 
 
+
+`NOTES:`
+
+Can I and should I structure my models in preparation of DB context usage?
+How does this work, exactly?
+I think understanding this is kind of important, because I still
+have a weak grasp of how property accessibility should work
+in the first place, and this relates to that.
+Some of it just seems to be semantic /syntactic.
+so there's no issue in setting it up like that in the first place.
+
+PRIVATE CONSTRUCTOR IN MODEL:
+
+The private constructor is essentially what enables EF Core to build
+the C# class object from the database row data WITHOUT other applications
+being to access it and create bad/empty data objects with it.
+
+WHY THE PROPERTY ACCESSIBILITY CHANGE?
+
+But why change the Accessibility in EG Title?
+Again, because EF Core has private access - or rather it USES private
+access, but it needs to be made explicit?
+
+ID
+
+The database handles that, so it just needs to be made accessible, but
+shouldn't be modified or part of any constructor since you don't want
+other parts of the code to access it.
+AKA DB EXCLUSIVE.
+
+
+FURTHER:
+
+my models should be POCO? Plain old something object.
+
+They shouldn't contain any logic, inluding contstructor logic?
+
+But should/could I make them like that before DB context?
+And does it cause issues?
+
+Making the models POCO doesn't seem practical for several reason.
+If I want to allow other developers to build upon the project,
+there's not a simple way to enforce interactions with the models purely
+through the services, especially not, when they're segregated into
+different projects.
+
+keeping the rules of interaction within the data container itself
+is the best and simplest enforcement.
+
+There seems to some kind of bellcurve here where anemic models
+become less useful in larger projects.
+
+I think what the AI is trying to help me with proves its misunderstanding.
+Need to talk to it again.
+
+Wtf, how and when do I use the docker.yaml file?
+am I suppsosed to set it up BEFORE postgreSQL?
+
+The task guide doesn't acknowledge it
+but the evaluation references it...?
 
 
 

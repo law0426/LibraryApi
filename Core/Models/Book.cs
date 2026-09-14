@@ -3,13 +3,17 @@
 public class Book
 {
     public int Id { get; private set; }
+    public string Title { get; private set; }
+    public bool Borrowed { get; private set; } = false;
 
-    public string Title{get;}
-    public bool Borrowed{get; private set;}
+    private Book()
+    {
+        Title = "";
+    }
 
-    public Book(string title){
+    public Book(string title)
+    {
         Title = title;
-        Borrowed = false;
     }
 
     public void Borrow()
