@@ -1,23 +1,19 @@
 namespace WebApi.Services;
 using Core.Models;
+using Data;
 
-//This should take the library class and do end point logic to it.
 
-//Did this need to inherit anything?
 
 public class LibraryService : ILibraryService
 {
     Library library = new();
 
-    // public LibraryService(bool testing)
-    // {
-    //     if (testing)
-    //     {
-    //         //initialize with test values;
-    //         Console.WriteLine("LibraryService(1); Initialized. TEST ENVIRONTMENT DETECTED.");
-    //         Console.WriteLine("Initializing Library with test values.");
-    //     }
-    // }
+    private readonly LibraryDbContext _db;
+
+    public LibraryService(LibraryDbContext db)
+    {
+        _db = db;
+    }
 
     public Task<IEnumerable<User>> GetUsersAsync()
     {
@@ -26,13 +22,9 @@ public class LibraryService : ILibraryService
 
     public async Task<Book> PostBookAsync(Book book)
     {
-        return await library.RegisterBook(book);
+        _db.Books.Add(book);
+        await _db.SaveChangesAsync();
 
-        //TODO: Async code comparison for future adaptation below:
-        // var newBookRegistration = new Book(book.Title);
-        // var newTask = new UserTask(/*++_nextId,*/ title, description,dueDate);
-        // await Tasks.AddAsync(newTask);
-        // await SaveChangesAsync();
-        // return newTask;
+        return book;
     }
 }

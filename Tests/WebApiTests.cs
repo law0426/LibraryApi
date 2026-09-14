@@ -33,16 +33,18 @@ public class WebApiTests : IClassFixture<ApiFactory>
         Console.WriteLine($"Body: {await response.Content.ReadAsStringAsync()}");
         //response.EnsureSuccessStatusCode();
     }
-    [Fact]
-    public async Task LibraryService_ReturnsBook()
-    {
-        Book book = new Book("Book1");
-        LibraryService service = new LibraryService();
-        var response = await service.PostBookAsync(book);
+    //Vestigial code: Postbook is the actual important test to keep active.
+    //This was just a temporary test to begin with.
+    // [Fact]
+    // public async Task LibraryService_ReturnsBook()
+    // {
+    //     Book book = new Book("Book1");
+    //     LibraryService service = new LibraryService();
+    //     var response = await service.PostBookAsync(book);
         
-        //var response = await _client.PostAsJsonAsync("/Library/books", book);
-        Assert.Equal(book, response);
-    }
+    //     //var response = await _client.PostAsJsonAsync("/Library/books", book);
+    //     Assert.Equal(book, response);
+    // }
     [Fact]
     public async Task PostBook_ReturnsCreated()
     {

@@ -13,6 +13,25 @@ Does this step rely on docker.yaml?
 what does docker.yaml actually do?
 since it manages the different services, it seems like I should do it afterwards.
 
+It's shockingly hard to get a straight answer of how to get started on this part.
+I'm installing postgress 18. so what was the package I added earlier lol?
+
+After doing this part, I need to set up the context and do the db saving etc.?
+and call it from the correct parts. It was just an extra layer?
+
+I feel like I've got a clear idea of what to do, but I want to see what the AI
+is suggesting for these steps. Hopefully I'm not learning bad habits.
+
+We're running a lot of tests and steps to validate installations. I should
+probably make note of them.
+dotnet ef database update --project Data --startup-project WebApi
+read up on that line further?
+
+Despite the massive digression, it seems the AI actually got back on the same
+track as I wanted by itself, once we finished the installation, setting up
+migrations and updating the ef database.
+
+Cool.
 
 
 <details>
@@ -184,6 +203,17 @@ The task guide doesn't acknowledge it
 but the evaluation references it...?
 
 
+
+
+
+
+Future changes:
+Remove Library model
+Separate library service into:
+    user service
+    and book service
+
+Proper functionality lol?
 
 
 
