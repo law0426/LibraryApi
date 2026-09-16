@@ -20,7 +20,7 @@ Due to the password management I had previously, I need to setup
 dotnet user-secrets init --project WebApi
 Among other things.
 
-
+Ok usersecrets built and I can go back to the composer.
 
 
 
