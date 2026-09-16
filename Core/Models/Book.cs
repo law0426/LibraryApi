@@ -27,6 +27,9 @@ public class Book
 
     public void Return()
     {
+        if (!Borrowed)
+            throw new InvalidOperationException("Book is not borrowed");
+            
         Borrowed = false;
     }
     

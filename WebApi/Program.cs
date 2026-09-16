@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
-builder.Services.AddSingleton<ILibraryService, LibraryService>();
+builder.Services.AddScoped<ILibraryService, LibraryService>();
 builder.Services.AddHealthChecks();
 builder.Services.AddDbContext<LibraryDbContext>(options =>
     options.UseNpgsql(

@@ -2,6 +2,8 @@
 
 
 
+Part 2?
+
 I'm currently trying to set up the postgresql functionality
 
 issues?
@@ -32,6 +34,12 @@ track as I wanted by itself, once we finished the installation, setting up
 migrations and updating the ef database.
 
 Cool.
+
+Now I'm going to update the tests so I can actually test persistence?
+I could also use Scalar or something?
+
+
+
 
 
 <details>
@@ -196,12 +204,14 @@ become less useful in larger projects.
 I think what the AI is trying to help me with proves its misunderstanding.
 Need to talk to it again.
 
-Wtf, how and when do I use the docker.yaml file?
+how and when do I use the docker.yaml file?
 am I suppsosed to set it up BEFORE postgreSQL?
 
 The task guide doesn't acknowledge it
 but the evaluation references it...?
 
+in the controller, you take functions with the IEnumerable<T>
+type, and return it via the OK(); or other result equivallent.
 
 
 
