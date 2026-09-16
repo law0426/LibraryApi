@@ -1,0 +1,93 @@
+# docker-compose.yaml
+#
+# Defines the services/containers that make up the application.
+# Docker Compose uses this file to build/download images, create containers,
+# configure networking, expose ports, and manage persistent volumes.
+
+services:
+
+  # ---------------- API ----------------
+  # Our ASP.NET Web API.
+  # The image is built from our own Dockerfile.
+  webapi:
+    # Build the API image from the project directory.
+    build:
+      #Compose file path - should be project root - sln.
+      context: .
+      #file path:
+      dockerfile: WebApi/Dockerfile
+
+    # Expose the API on localhost:8080.
+    # Format: HOST_PORT:CONTAINER_PORT
+    ports:
+      - "8080:8080"
+
+    # Configuration passed into the API container as environment variables.
+    environment:
+      # Tells ASP.NET which appsettings environment to use.
+      ASPNETCORE_ENVIRONMENT: Development
+
+      # The API connects to the PostgreSQL service using the service name
+      # "postgres", rather than localhost.
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=library;Username=postgres;Password=${POSTGRES_PASSWORD}"
+
+    # Start the PostgreSQL service before starting the API service.
+    depends_on:
+      - postgres
+
+
+  # ---------------- PostgreSQL ----------------
+  # The database server.
+  # We use the official PostgreSQL image rather than building our own.
+  postgres:
+    image: postgres:18
+
+    # Initial PostgreSQL configuration.
+    environment:
+      # Database that PostgreSQL creates initially.
+      POSTGRES_DB: library
+
+      # Database user.
+      POSTGRES_USER: postgres
+
+      # Database user's password.
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    # Expose PostgreSQL to the host machine.
+    # The API itself can communicate through Docker's internal network.
+    ports:
+      - "5432:5432"
+
+    # Store PostgreSQL's data in a Docker-managed named volume.
+    # This allows database data to survive container restarts/recreation.
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+  # ---------------- pgAdmin ----------------
+  # PostgreSQL administration interface.
+  # Currently disabled; uncomment when pgAdmin is needed.
+  #
+  # pgadmin:
+  #   # Official pgAdmin image.
+  #   image: dpage/pgadmin4
+  #
+  #   # Login credentials for the pgAdmin web interface.
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@example.com
+  #     PGADMIN_DEFAULT_PASSWORD: YOUR_PGADMIN_PASSWORD
+  #
+  #   # Access pgAdmin through http://localhost:5050
+  #   ports:
+  #     - "5050:80"
+  #
+  #   # Start PostgreSQL before pgAdmin.
+  #   depends_on:
+  #     - postgres
+
+
+# ---------------- Volumes ----------------
+# Named volumes are managed by Docker.
+# postgres_data contains the actual PostgreSQL database files.
+volumes:
+  postgres_data:

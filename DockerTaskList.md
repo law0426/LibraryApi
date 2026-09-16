@@ -1,8 +1,34 @@
 
 
 
+========== PART 3 =================
 
-Part 2?
+PRE 3:
+I need to make the compose.yaml file to be able to link postgresql container
+to the webapi container.
+TERMINOLOGY IMPORTANCE: Dockerfile is for making an image.
+The image is for making container.
+postgresql was downloaded with an official image
+that image gives us a container
+compose is supposed to link them.
+Later pg admin also gives us a container.
+
+The compose.yaml file is apparently pretty important as it's what manages all the containers
+which need to work together to make the project work.
+
+Due to the password management I had previously, I need to setup
+dotnet user-secrets init --project WebApi
+Among other things.
+
+
+
+
+
+
+
+
+
+==========Part 2?=======================
 
 I'm currently trying to set up the postgresql functionality
 
@@ -38,12 +64,15 @@ Cool.
 Now I'm going to update the tests so I can actually test persistence?
 I could also use Scalar or something?
 
+Which part specifically is it that causes the program to demand services
+ convert from singleton to scoped?
 
+Either way, persistence confirmed. END OF PART 2
 
 
 
 <details>
-
+<summary>Health test</summary>
 Building healthcheck test - but DOCKER COMPOSE must use it.
 
 Dockerfile:
@@ -178,6 +207,22 @@ The database handles that, so it just needs to be made accessible, but
 shouldn't be modified or part of any constructor since you don't want
 other parts of the code to access it.
 AKA DB EXCLUSIVE.
+
+
+ABOUT DOCKER COMPOSE
+
+We store the database in a volume inside the docker volume.
+Volume meaning what?
+postgresql is considered the central dependency that the other services rely on.
+I'm not sure if this is a truism, or always the case.
+
+About PW management during development:
+What a shitshow.
+I don't know what references what where...
+Should I have been using user-secrets and .env from the beginning?
+Also, the way I was told to change password, still had it in
+plain text in the terminal lol?
+
 
 
 FURTHER:
