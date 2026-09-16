@@ -34,6 +34,45 @@ composing?
 Had to debug the postgres container exiting after running.
 The issue was the internal path destination being one layer too deep.
 
+Wow, this wasn't even part 3.
+
+And I still need to fix migrations.
+
+What exactly are we doing?
+
+Ok, apparently there was a certain sequence I was supposed to be doing things in.
+It's a little frustrating how I'm getting different information from different
+places and I don't know which ones to follow.
+Apparently, after initial create,
+I should've run 
+docker compose up
+Then:
+dotnet ef database update --project TaskService.Api
+
+Apparently now I'm trying:
+export ConnectionStrings__DefaultConnection="Host=localhost;Port=5432;Database=library;Username=postgres;Password=$(sed -n 's/^POSTGRES_PASSWORD=//p' .env)"
+What does this do?
+Apprently it changes a shell setting:
+ConnectionStrings__DefaultConnection => ConnectionStrings:DefaultConnection
+this is a setting in the shell itself, I guess.
+
+Followed by:
+dotnet ef database update --project Data --startup-project WebApi
+
+This should work Because ASP.NET Core's configuration gives environment variables precedence over User Secrets.
+
+Annd then:
+unset ConnectionStrings__DefaultConnection 
+??
+So I temporarily store some variable?
+
+I've learned a lot from this issue. too bad it's not relevant to the project.
+
+
+
+================= ACTUAL PART 3 ===================
+We're adding pgadmin, and shoving it into the compose.yaml file.
+
 
 
 
