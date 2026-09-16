@@ -22,8 +22,17 @@ Among other things.
 
 Ok usersecrets built and I can go back to the composer.
 
+Due to postgress running as a service in the background, I had to
+open services and turn it off in order to make port 5432 available.
+Checked status with git bash:
+"/c/Program Files/PostgreSQL/18/bin/pg_isready.exe" -h localhost -p 5432
+Now time for:
+docker compose up --build
 
-
+Meaning compose checks for port availability when building? compiling?
+composing?
+Had to debug the postgres container exiting after running.
+The issue was the internal path destination being one layer too deep.
 
 
 

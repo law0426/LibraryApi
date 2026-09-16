@@ -61,7 +61,7 @@ services:
     # Store PostgreSQL's data in a Docker-managed named volume.
     # This allows database data to survive container restarts/recreation.
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
 
 
   # ---------------- pgAdmin ----------------
