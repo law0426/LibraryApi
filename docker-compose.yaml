@@ -67,27 +67,30 @@ services:
   # ---------------- pgAdmin ----------------
   # PostgreSQL administration interface.
   # Currently disabled; uncomment when pgAdmin is needed.
-  #
-  # pgadmin:
-  #   # Official pgAdmin image.
-  #   image: dpage/pgadmin4
-  #
-  #   # Login credentials for the pgAdmin web interface.
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: admin@example.com
-  #     PGADMIN_DEFAULT_PASSWORD: YOUR_PGADMIN_PASSWORD
-  #
-  #   # Access pgAdmin through http://localhost:5050
-  #   ports:
-  #     - "5050:80"
-  #
-  #   # Start PostgreSQL before pgAdmin.
-  #   depends_on:
-  #     - postgres
-
+  
+  pgadmin:
+    # Official pgAdmin image.
+    image: dpage/pgadmin4
+  
+    # Login credentials for the pgAdmin web interface.
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+  
+    # Access pgAdmin through http://localhost:5050
+    ports:
+      - "5050:80"
+  
+    # Start PostgreSQL before pgAdmin.
+    depends_on:
+      - postgres
+    
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
 
 # ---------------- Volumes ----------------
 # Named volumes are managed by Docker.
 # postgres_data contains the actual PostgreSQL database files.
 volumes:
   postgres_data:
+  pgadmin_data:
