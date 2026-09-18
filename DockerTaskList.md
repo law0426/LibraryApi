@@ -1,7 +1,16 @@
 
 
 
-========== PART 3 =================
+
+============== PART 4 ============
+
+Save up and hand in?
+
+
+
+
+
+============== PART 3 =================
 
 PRE 3:
 I need to make the compose.yaml file to be able to link postgresql container
@@ -73,6 +82,16 @@ I've learned a lot from this issue. too bad it's not relevant to the project.
 ================= ACTUAL PART 3 ===================
 We're adding pgadmin, and shoving it into the compose.yaml file.
 
+Failed to connect to docker api. Does that mean I need to run it first? I thought the compose ran it for me?
+I don't need the container itself, but docker-desktop is an engine which I'm running commands through.
+I need it open to use them, unlike with packages in VSCode.
+ok, so the container is also a package/container manager - handles installs of imgs i might need.
+Then the building of the environment with those container equivalents.
+
+Part of the initialization happened in pgadmin itself - setting up login info etc.
+Postgres accessible. DB accessible. Table accessible.
+
+Part 3 complete.
 
 
 
@@ -224,6 +243,17 @@ Docker Compose:
         No new functionality
         Focus on containerising existing system.
 
+SELF-EVALUTATION:
+Trying to make MVP as small as possible and tests as narrow as possible
+Made Future changes necessary, and changed the scoped
+simply to make the other feature set properly testable.
+I'm uncertain if this task kind of contradicts the TDD methodology
+since part of the point of using TDD is to notice and adapt
+to necessary changes, as opposed to sticking to a plan of scope.
+which meant I quickly drafted something,
+with the idea of scaling down immediately,
+and adding elements as they became necessary.
+But then I'm contradicting the evaluation for "no new functionality"
 
 
 
@@ -270,6 +300,19 @@ I don't know what references what where...
 Should I have been using user-secrets and .env from the beginning?
 Also, the way I was told to change password, still had it in
 plain text in the terminal lol?
+
+============== ABOUT DOCKER COMPOSE 2=================
+It manages:
+    1) images, including installations of "standard" ones.
+    2) connecting and linking containers
+    3) assigning ports to containers
+    4) 
+
+
+============ ABOUT DOCKER DESKTOP ===============
+it's an engine I need to have up and running in order to use docker commands.
+Also allows the running of containers.
+is it its own environment?
 
 
 
