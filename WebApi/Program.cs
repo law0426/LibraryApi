@@ -24,6 +24,7 @@ builder.Services.AddOpenApi(options =>
                     Description = "Enter your JWT token"
                 }
             };
+        
 
         return Task.CompletedTask;
     });
@@ -41,7 +42,21 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.MapScalarApiReference();
+    app.MapScalarApiReference(options =>
+    {
+        // Scalar.AspNetCore provides the Scalar API documentation UI.
+        // MapScalarApiReference() exposes that UI as an endpoint in our API.
+        //
+        // The options object lets us customize how Scalar behaves.
+        // Here we tell Scalar which OpenAPI security scheme it should
+        // use when the user authenticates through the Scalar interface.
+        //
+        // "Bearer" must match the name we gave our security scheme in
+        // AddOpenApi():
+        //
+        // ["Bearer"] = new OpenApiSecurityScheme { ... }
+        options.AddPreferredSecuritySchemes("Bearer");
+    });
 }
 
 app.UseHttpsRedirection();

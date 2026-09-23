@@ -35,6 +35,16 @@ The alternative is the lecturer example project as a fallback
 there's code-copying anyway, but more examples just means
 more to learn from.
 
+We have to change the mapscalar part in environment settings to make scalar update its UI to use the security scheme called "Bearer" ?
+
+Good thing I remembered that a site was used to get JWT token. jwt.io?
+Get request tested, String returned. Or is a json?...
+Either way, something readable lol.
+
+To be clear, I don't have an authorize button, but a get button. But this function covers part 3.
+insofar as it receives a token, and returns the read data.
+
+
 
 ============== PART 1 a=================
 
@@ -63,6 +73,13 @@ Granular:
 5) The user ID used for ownership comes from the authenticated JWT, not the request body.
 6) Books themselves are shared library resources and are not owned by individual users.
 7) A user's personal library data is separated from other users' personal library data by the user association.
+
+At this granularity/specificity and with negatives allowed,
+the list gets excessive:
+A user can read list of books.
+user cannot edit books in library.
+user cannot edit borrowed books.
+user cannot edit other user's borrowed books.
 
 Maybe I'll depict that in the excalidraw?
 Segment different areas where those rules are encapsulated?

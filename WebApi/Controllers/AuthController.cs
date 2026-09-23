@@ -19,6 +19,12 @@ public class AuthController : ControllerBase
         // At this point it is just a string.
         var authHeader = Request.Headers.Authorization.ToString();
 
+        // If the client did not send an Authorization header,
+        // there is no JWT for us to read.
+        if (string.IsNullOrEmpty(authHeader))
+        {
+            return BadRequest("Authorization header is missing.");
+        }
         // Remove the "Bearer " prefix so that we are left with
         // only the JWT itself.
         var token = authHeader
@@ -28,6 +34,14 @@ public class AuthController : ControllerBase
         // JwtSecurityTokenHandler understands the JWT format
         // and can turn the string into an object we can inspect.
         var handler = new JwtSecurityTokenHandler();
+        // JwtSecurityTokenHandler comes from the System.IdentityModel.Tokens.Jwt
+        // package. It provides .NET types and methods for working with JWTs.
+        //
+        // ReadJwtToken() parses the JWT string and gives us a JwtSecurityToken
+        // object whose header and claims we can inspect.
+        //
+        // IMPORTANT: this only reads/parses the token.
+        // It does NOT verify that the token was signed by a trusted issuer.
         var jwt = handler.ReadJwtToken(token);
 
         // A JWT contains claims such as:
