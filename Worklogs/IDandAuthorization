@@ -1,27 +1,29 @@
 
-Task break down:
+Task break down (Newest task first):
+
+================== Part 4 =====================
+implement connection between user and domain based on desgin
+from part 1B
+
+you ashould follow the excalidraw model, but make adjustments
+as necessary for the solution.
+
+GOAL:
+    Data tied to appropriate user
+    users can't access each other's data
+    system uses info from JWT token to ID user.
+
+
+Holy shit what an insane debugging sequence to figure out two apps
+were running on port 5432. I need to figure out how to not accidentally
+run postgresql outside of my containers
+
+note to self: CHECK SERVICES.
+
 
 
 
 ===================== Part 2 ======================
-Set up JWT reading.
-
-(Part 3 helps to test part 2)
-
-Make an Authcontroller.
-Keep it separate by making a controller handling JWT and
-token reading.
-
-The controller must:
-    Receive JWT token via authorization header
-    Read the token
-    Return claims within the token.
-
-Verify the JWT reading works by sending in a token
-and control the claims return correctly.
-
-
-
 Lecturer has a guide on this, and gone through some of it,
 but hard to remember. Is reading commit history changes
 a good way of learning just by tracking changes?

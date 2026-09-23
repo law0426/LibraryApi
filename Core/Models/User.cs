@@ -6,6 +6,9 @@ public class User
     //Just string.
     //And List of books they're borrowing.
     public int Id { get; private set; }
+    // Identifies this user in the identity system.
+    // This is separate from the database-generated Id.
+    public string IdentityProviderId { get; private set; }
     public string Name { get; private set; }
     public List<Book> Books { get; private set; } = [];
 
