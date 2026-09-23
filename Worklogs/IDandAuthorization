@@ -1,0 +1,203 @@
+
+Task break down:
+
+============== PART 1 a=================
+
+How much is supposed to fit into this flow?
+What's the starting point?
+Are we just saying loging in? Or creating user?
+Registered user is something else.
+
+
+============= Part 1 B ================
+
+I think I'll make 2 sets of rules.
+
+one abstract and one granular.
+
+eg, broad:
+1) User-owned data is associated with exactly one user.
+2) The authenticated user's identity is determined from the JWT, not from user-supplied request data.
+3) Authorized users may CRUD with their own data.
+
+Granular:
+1) A borrow is associated with the user identified by the JWT.
+2) A user can only create a borrow for themselves.
+3) A user can only view their own borrows.
+4) A user can only return/delete their own borrows.
+5) The user ID used for ownership comes from the authenticated JWT, not the request body.
+6) Books themselves are shared library resources and are not owned by individual users.
+7) A user's personal library data is separated from other users' personal library data by the user association.
+
+Maybe I'll depict that in the excalidraw?
+Segment different areas where those rules are encapsulated?
+Box them by rules.
+
+Am I actually expected to handle users just via JWT and not via registration?
+
+We'll see. These are the rules, at least.
+How much work dictates where I get.
+
+
+================= TASK SUMMARY: =====================
+We'll be using JWT (tokens) to identify the user.
+
+
+
+================== PART 1 A ====================
+Map authorization flow.
+
+Use excalidraw
+
+Diagram requirements:
+    Resource owner - user
+    Client (browser aplication sending requests)
+    ID provider
+    resource server (my API)
+
+Answer the following:
+    Which data belong to specific users?
+    What happens if two users send requests to the same API?
+    How can the system know who sends the request?
+    How are tokens sent to the API?
+
+The point is to get visual idea of how autherisation works.
+
+
+==================== PART 1 B ======================
+Data and ownership modelling.
+
+in the same excalidraw, modell how your system handles
+data per user.
+
+ask yourself:
+    which data belongs to a user
+    how does the system distinguish data between users.
+    where in the system does one store connections between user and data
+
+
+
+example of how user data connects to domain:
+
+Library?
+    borrows connect to user in token
+    user A cannot see the borrows of user B
+
+Define THREE rules for how data connects to a user
+
+choose up to TWO examples below.
+at least 1 rule you must formulate yourself based on your 
+own system. If you wish, all 3 rules can be discovered
+from your own modell...
+What?
+Borrows connect to user in token?
+What does that mean?
+
+
+===================== Part 2 ======================
+Set up JWT reading.
+
+(Part 3 helps to test part 2)
+
+Make an Authcontroller.
+Keep it separate byt making a controller hanlding JWT and
+token reading.
+
+The controller must:
+    Receive JWT token via authorization header
+    Read the token
+    Return claims within the token.
+
+Verify the JWT reading works by sending in a token
+and control the claims return correctly.
+
+================== Part 3 =====================
+Set up authorization in swagger (Scalar?)
+
+Make necessary changes in Program.cs so JWT can be sent
+via authorize button in swagger.
+
+VERIFY:
+    swagger shows authorize button
+    token can be sent with request
+    auth controller receives and reads token correctly
+
+This'll be handy to test the previous part
+
+================== Part 4 =====================
+implement connection between user and domain based on desgin
+from part 1B
+
+you ashould follow the excalidraw model, but make adjustments
+as necessary for the solution.
+
+GOAL:
+    Data tied to appropriate user
+    users can't access each other's data
+    system uses info from JWT token to ID user.
+
+
+================== Part 5 ====================
+HAND-IN
+
+Hand in Excalidraw in a root folder called excalidraw.
+the file can be .png or .excalidraw
+give it descriptive names.
+
+1) commit changes to github repo
+2) find link to that specific commit.
+3) Hand in the link to that specific commit.
+
+
+================= EVALUATION CRITERIA ==================
+
+
+Struktur
+- Prosjektet er ryddig organisert.
+- Domenelogikk ligger fortsatt i service.
+- Ingen autentiseringslogikk er spredt tilfeldig i prosjektet.
+
+Autentiseringsflyt (DEL 1A)
+- Excalidraw ligger i rotmappen under Excalidraw/.
+- Flyten er forståelig.
+- Det er mulig å følge hvordan token beveger seg gjennom systemet.
+
+- Diagrammet viser:
+Resource Owner
+Client
+Identity Provider
+Resource Server
+
+Data og eierskap (DEL 1B)
+- Deltakeren har definert totalt 3 regler.
+- Minst én regel er egenformulert.
+- Reglene beskriver hvordan data tilhører bruker.
+- Det er tydelig hvordan systemet skiller brukerdata.
+
+JWT-lesing (AuthController)
+- AuthController mottar JWT via Authorization-header.
+- JWT kan leses.
+- Claims returneres korrekt.
+- Løsningen fungerer når token sendes inn.
+
+Swagger-oppsett
+- Swagger viser Authorize-knappen.
+- JWT kan sendes via Swagger.
+- Token blir faktisk sendt med requests.
+- AuthController mottar token.
+
+Brukerisolasjon
+- Data er knyttet til riktig bruker.
+- Systemet bruker claims fra JWT til å identifisere bruker.
+- Bruker A kan ikke hente bruker B sine data.
+- Endepunktene respekterer brukergrenser.
+
+Scope
+- Oppgaven fokuserer på auth og eierskap.
+- Ingen store nye features er introdusert.
+- Endringer bygger videre på eksisterende MVP.
+
+
+
+
+
