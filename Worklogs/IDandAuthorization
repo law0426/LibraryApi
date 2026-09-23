@@ -1,6 +1,41 @@
 
 Task break down:
 
+
+
+===================== Part 2 ======================
+Set up JWT reading.
+
+(Part 3 helps to test part 2)
+
+Make an Authcontroller.
+Keep it separate by making a controller handling JWT and
+token reading.
+
+The controller must:
+    Receive JWT token via authorization header
+    Read the token
+    Return claims within the token.
+
+Verify the JWT reading works by sending in a token
+and control the claims return correctly.
+
+
+
+Lecturer has a guide on this, and gone through some of it,
+but hard to remember. Is reading commit history changes
+a good way of learning just by tracking changes?
+Maybe.
+
+Ok, well I set up something basic. Now how do I send a token
+to test my controller?
+
+NOTE: Let the AI make whatever suggestions it wants, 
+The alternative is the lecturer example project as a fallback
+there's code-copying anyway, but more examples just means
+more to learn from.
+
+
 ============== PART 1 a=================
 
 How much is supposed to fit into this flow?
@@ -37,6 +72,8 @@ Am I actually expected to handle users just via JWT and not via registration?
 
 We'll see. These are the rules, at least.
 How much work dictates where I get.
+
+
 
 
 ================= TASK SUMMARY: =====================
@@ -92,6 +129,9 @@ from your own modell...
 What?
 Borrows connect to user in token?
 What does that mean?
+It has to just mean token authorizes user and borrows
+can then their borrows can be shown to them.
+
 
 
 ===================== Part 2 ======================
