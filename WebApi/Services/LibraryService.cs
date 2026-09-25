@@ -19,10 +19,17 @@ public class LibraryService : ILibraryService
         throw new NotImplementedException();
     }
 
+    public async Task<User?> GetUserByIdentityProviderIdAsync(string identityProviderId)
+    {
+        return await _db.Users
+            .Include(user => user.Books)
+            .FirstOrDefaultAsync(user => user.IdentityProviderId == identityProviderId);
+    }
+
     public async Task<IEnumerable<Book>> GetBooksAsync()
     {
         //because of the task structure, what does this actually look like? 
-        //The reutnr type is weird, and we should just have a list?
+        //The return type is weird, and we should just have a list?
         //Do we just make it .tolist();?
         return await _db.Books.ToListAsync();
     }

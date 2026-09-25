@@ -17,9 +17,10 @@ public class User
         Name = "";
     }
 
-    public User(string name)
+    public User(string name, string identityProviderId)
     {
         Name = name;
+        IdentityProviderId = identityProviderId;
     }
 
     public void Receive(Book book)

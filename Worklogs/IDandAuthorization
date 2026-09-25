@@ -20,6 +20,11 @@ run postgresql outside of my containers
 
 note to self: CHECK SERVICES.
 
+netstat -ano | grep 5432
+Is my greatest ally in this case.
+Check the port.
+Can mimic authentication errors. etc
+
 
 
 
