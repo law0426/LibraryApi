@@ -1,18 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
+using WebApi.Services;
 
 namespace WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class AuthController : ControllerBase
+public class AuthController(ILibraryService libraryService) : ControllerBase
 {
+    private ILibraryService _libraryService = libraryService;
+
     // GET /Auth/token
     //
     // This endpoint does NOT authenticate anyone yet.
     // It receives an existing JWT and lets us inspect its contents.
     [HttpGet("token")]
-    public IActionResult GetToken()
+    public async Task<IActionResult> GetToken()
     {
         // The client sends the JWT in the HTTP Authorization header:
         // Authorization: Bearer eyJhbGciOi...
@@ -44,17 +47,27 @@ public class AuthController : ControllerBase
         // It does NOT verify that the token was signed by a trusted issuer.
         var jwt = handler.ReadJwtToken(token);
 
-        // A JWT contains claims such as:
+                // A JWT contains claims such as:
         // "sub"  -> subject/user identifier
         // "name" -> name
         // etc.
-        // We return the claims so we can see what was inside the token.
-        
-        //Are these the only claims? TODO: FURTHER READING.
-        return Ok(jwt.Claims.Select(claim => new
+        // Are these the only claims? TODO: FURTHER READING.
+
+        // Find the "sub" claim.
+        var subject = jwt.Claims
+            .FirstOrDefault(claim => claim.Type == "sub")?.Value;
+
+        // The JWT does not identify a user if it has no "sub" claim.
+        if (subject is null)
         {
-            claim.Type,
-            claim.Value
-        }));
+            return BadRequest("JWT does not contain a sub claim.");
+        }
+
+        // The "sub" claim identifies the user in the identity system.
+        // We use that identity to find the matching local User.
+        var user = await _libraryService
+            .GetUserByIdentityProviderIdAsync(subject);
+
+        return Ok(user);
     }
 }

@@ -55,7 +55,7 @@ public class CoreTests
     {
         //Arrange
         Book book = new("Book1");
-        User user = new("Bob");
+        User user = new("Bob","user12345");
 
         user.Receive(book);
         
