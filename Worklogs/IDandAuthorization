@@ -1,6 +1,19 @@
 
 Task break down (Newest task first):
 
+================== Part 5 ====================
+HAND-IN
+
+Hand in Excalidraw in a root folder called excalidraw.
+the file can be .png or .excalidraw
+give it descriptive names.
+
+1) commit changes to github repo
+2) find link to that specific commit.
+3) Hand in the link to that specific commit.
+
+Self-explanatory. Now do it.
+
 ================== Part 4 =====================
 implement connection between user and domain based on desgin
 from part 1B
@@ -103,6 +116,8 @@ local run webapi will try to connect to for the DB
 Ok. Validation confirmed. Token returning confirmed.
 I'm currently not creating users with tokens assigned to them.
 But elements are working separately. Nice.
+
+This should mean part 4 is done. Then it's just handing in, basically.
 
 
 ===================== Part 2 ======================
