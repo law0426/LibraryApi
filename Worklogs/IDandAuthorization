@@ -87,6 +87,22 @@ Not sure if that's has some industry standard.
 Probably better than Id ++;
 
 
+Oddities of scalar: The interface is very unintuitive;
+I have to toggle enable on the provideID to have the 
+request execute its intended function.
+
+Now have to start debugging problem. Built the token
+creation and validation, but something's gone wrong.
+Told GPT to give the sequence of steps, so we can
+find interception points and use the halving system
+to reach the problem based on returned messages.
+
+REMINDER: Docker still hosts postgres which even my
+local run webapi will try to connect to for the DB
+
+Ok. Validation confirmed. Token returning confirmed.
+I'm currently not creating users with tokens assigned to them.
+But elements are working separately. Nice.
 
 
 ===================== Part 2 ======================

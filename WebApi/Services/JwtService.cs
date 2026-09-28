@@ -25,6 +25,8 @@ public class JwtService(
 
         if (string.IsNullOrEmpty(authHeader))
         {
+            // The client did not send an Authorization header,
+            // so there is no JWT for us to validate.
             return Task.FromResult<string?>(null);
         }
 
@@ -41,7 +43,12 @@ public class JwtService(
         // Validate the JWT signature using the key from User Secrets.
         // We are not using issuer/audience validation yet because
         // our current learning-project token does not define those.
-        var handler = new JwtSecurityTokenHandler();
+        // Keep JWT claim names unchanged when creating the ClaimsPrincipal.
+        // This lets us read the JWT's "sub" claim as "sub".
+        var handler = new JwtSecurityTokenHandler
+        {
+            MapInboundClaims = false
+        };
 
         var validationParameters = new TokenValidationParameters
         {
@@ -63,10 +70,12 @@ public class JwtService(
                 validationParameters,
                 out _);
 
+
             // "sub" identifies the user in the identity provider.
             var identityProviderId = principal.Claims
                 .FirstOrDefault(claim => claim.Type == "sub")
                 ?.Value;
+            
 
             return Task.FromResult(identityProviderId);
         }
