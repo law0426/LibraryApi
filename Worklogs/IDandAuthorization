@@ -62,7 +62,29 @@ and then the actualy functionality.
 It's a little weird to have such an anemic service, but
 it'll be used a lot.
 
+"??" is an operator I need to get familiar with
+if to the left of it is null, execute the right part.
 
+csproj actually loads the secrets, and probably other dependencies
+ahead of time, including the key in this case
+and then it's just grabbed like a variable, except
+pulled from a dictionary? possibly?
+
+The jwtService for verification uses very specific parameters
+I don't think I need to understand fully,
+But I understand I'm creating essentially configurations
+for how to parse the token and before starting
+the validation process with those.
+
+And then returning either null or the providerID.
+
+The token creation seems to work similarly but with fewer
+parameters.
+
+I have token creation, but
+Do I now have a way of actually creating the provider ID, though?
+Not sure if that's has some industry standard.
+Probably better than Id ++;
 
 
 
