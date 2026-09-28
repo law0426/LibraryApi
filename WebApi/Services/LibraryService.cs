@@ -25,6 +25,22 @@ public class LibraryService : ILibraryService
             .Include(user => user.Books)
             .FirstOrDefaultAsync(user => user.IdentityProviderId == identityProviderId);
     }
+    
+    // Gets only the books currently borrowed by the specified user.
+    // The identityProviderId will eventually come from the validated JWT.
+    public async Task<IEnumerable<Book>> GetBooksForUserAsync(string identityProviderId)
+    {
+        var user = await _db.Users
+            .Include(user => user.Books)
+            .FirstOrDefaultAsync(user => user.IdentityProviderId == identityProviderId);
+
+        if (user is null)
+        {
+            return [];
+        }
+
+        return user.Books;
+    }
 
     public async Task<IEnumerable<Book>> GetBooksAsync()
     {

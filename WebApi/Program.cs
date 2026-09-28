@@ -31,6 +31,11 @@ builder.Services.AddOpenApi(options =>
 });
 builder.Services.AddControllers();
 builder.Services.AddScoped<ILibraryService, LibraryService>();
+// Gives JwtService access to the current HTTP request,
+// including its Authorization header.
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddHealthChecks();
 builder.Services.AddDbContext<LibraryDbContext>(options =>
     options.UseNpgsql(

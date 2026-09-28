@@ -7,5 +7,7 @@ public interface ILibraryService
     Task<User?> GetUserByIdentityProviderIdAsync(string identityProviderId);
     Task<IEnumerable<Book>> GetBooksAsync();
     Task<Book> PostBookAsync(Book book);
-    // Task<UserTask> AsyncAddTask(string title, string description, DateTime dueDate);
+    // Gets only the books currently borrowed by the specified user.
+    // The identityProviderId will eventually come from the validated JWT.
+    Task<IEnumerable<Book>> GetBooksForUserAsync(string identityProviderId);
 }

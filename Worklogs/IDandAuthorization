@@ -25,6 +25,45 @@ Is my greatest ally in this case.
 Check the port.
 Can mimic authentication errors. etc
 
+Created authcontroller.
+Due to user interaction happening in library services,
+currently putting behaviour in there. Will probably have to change.
+Good to know about null! warning supression.
+Although, I've unfortunately built up the habit of ignoring warnings so far.
+
+It's simple enough to segregate access between users - 
+just needs a variable check. But to do it via JWT?
+I need to be an ID provider. But how was this stored again?
+We DON'T put the registered ID into the JWT.
+We put the JWT ID into the registered ID?
+And then if they log via different devices, the JWT gets their sub
+updated FROM the registered ID.
+
+So... I make checks towards the JWT ID?
+I also just hand them out myself atm, and function as ID provider.
+So I should make a token-checker, and use that within
+all my requests? I think so. 
+Rather, the token has the sub extracted.
+and the services use the sub for cross referencing.
+
+
+apparently it's normal for controllers handling protected requests
+to parse the JWT that gets sent with requests.
+due to the constant parsing, however, I should have a JWTService.
+That can handle the parsing for us, simply.
+The AuthController shouldn't be interacting with the library controller.
+
+So even though Authcontroller deals with tokens.
+Other controllers can be dependent on those tokens,
+and will therefore there's some canibalizations.
+
+So, we'll follow the usual service structure, of making a interface
+and then the actualy functionality.
+It's a little weird to have such an anemic service, but
+it'll be used a lot.
+
+
+
 
 
 
@@ -192,7 +231,7 @@ This'll be handy to test the previous part
 implement connection between user and domain based on desgin
 from part 1B
 
-you ashould follow the excalidraw model, but make adjustments
+you should follow the excalidraw model, but make adjustments
 as necessary for the solution.
 
 GOAL:
