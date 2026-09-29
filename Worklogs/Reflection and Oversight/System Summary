@@ -1,0 +1,42 @@
+
+
+# how to run
+Isn't that just docker-compose.yaml?
+No.
+You need to run
+docker compose up
+go to:
+http://localhost:8080/scalar 
+to interact with the api.
+
+This is why I should make html front end.
+
+
+
+
+so that the postgres and pgadmin containers can be run in the docker environment.
+Otherwise, loca installs are required.
+
+
+So essentially, I've got different ways to set up the diagram.
+
+Various starting points:
+
+Ground up, from model, to db, via migrations and how it eventually reaches the user.
+
+How it gets launch, first terminal commands, then it runs, they connect, then you interact with it.
+
+Client/user. Sends requests, gets authorized, gets access.
+
+
+New excalidraw? Set up all the components and especailly start point?
+
+EFCore creates migrations and creates the DB ruleset based off models.
+Postgres handles interaction, eg pulling/presenting data.
+Can also change schema. This seems like a problem.
+since it can cause conflict with underlying models.
+
+
+
+
+
