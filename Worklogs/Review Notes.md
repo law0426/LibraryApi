@@ -85,6 +85,13 @@ USER ID CREATION?
 PW storage.
 For admin, and postgres is one thing.
 
+.env contains pgadmin and postgres pw.
+user secrets contains the connectionstring, which also
+contains the postgres pw.
+The docker-compose is what decides what the login information is.
+it just has the ability to choose a source for the password.
+
+
 
 
 

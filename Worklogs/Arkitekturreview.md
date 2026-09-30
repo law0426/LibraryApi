@@ -100,7 +100,7 @@ find at least 3 things to improve.
 
 For each weakness, describe:
     - problem: what's the problem.
-    - concequence: WHY is it a problem?
+    - consequence: WHY is it a problem?
     - solution: what would you change?
     - priorty: How important is this to fix?
 
@@ -151,7 +151,6 @@ The goal is to show your ability to evaluat trade-offs and not just choose the f
 ## Decision
 
 ## Why?
-lol
 
 
 ## Consequences

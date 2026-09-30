@@ -36,6 +36,8 @@ Postgres handles interaction, eg pulling/presenting data.
 Can also change schema. This seems like a problem.
 since it can cause conflict with underlying models.
 
+Ok, weird relationships.
+I think I need to create boxes in boxes to build relationships.
 
 
 
