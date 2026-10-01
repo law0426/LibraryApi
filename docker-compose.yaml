@@ -30,7 +30,7 @@ services:
       # The API connects to the PostgreSQL service using the service name
       # "postgres", rather than localhost.
       ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=library;Username=postgres;Password=${POSTGRES_PASSWORD}"
-
+      Jwt__SigningKey: "${JWT_SIGNING_KEY}"
     # Start the PostgreSQL service before starting the API service.
     depends_on:
       - postgres

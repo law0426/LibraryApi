@@ -27,6 +27,9 @@ public class AuthController(
             user.Name
         });
     }
+
+    // The user authenticates with their credentials first.
+    // The generated IdentityProviderId is then used to create the JWT.
     [HttpPost("token")]
     public async Task<IActionResult> GetToken([FromBody] LoginRequest request)
     {

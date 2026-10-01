@@ -41,19 +41,12 @@ public class LibraryController(
         logger.LogInformation($"successfully registered: {registeredBook}");
         return Created();
     }
-    // GET /Library/my-borrows
-    //
-    // TODO: Get the authenticated user's identity from the validated JWT.
-    // For now, authentication is not implemented, so the identity is only
-    // represented by a placeholder.
-    //
-    // Once authentication is implemented:
-    // 1. Get the identityProviderId from the validated JWT.
-    // 2. Pass that identity to the library service.
-    // 3. The service returns only that user's borrowed books.
+    // Gets the authenticated user's borrowed books.
+    // JwtService validates the JWT and extracts the user's identity.
     [HttpGet("my-borrows")]
     public async Task<IActionResult> GetMyBorrows()
     {
+        // JwtService validates the JWT before returning the identity.
         var identityProviderId = await _jwtService.GetIdentityProviderIdAsync();
 
         if (identityProviderId is not Guid userId)

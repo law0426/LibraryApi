@@ -51,6 +51,49 @@ I could treat this as a separate problem for me to fix, but due
 to immediate relevancy, it makes sense to address now.
 
 
+ ## ====== Summary 1 =============
+
+First I changed the user model to accomodate for the variables
+old provider id went from string to guid
+Added password for proper login and registration testing.
+created constructor for new structure.
+(I should still move contstructor logic over to services.
+to fit industry standards better. For consistency, not yet.)
+
+Changed user registration and authentication i library service
+which got moved over to authservices.
+JWT services also got changed to fit the GUID system.
+Tried to minimize guid to and from string conversions.
+
+With the changes, the callstacks also needed to change.
+auth controller had to remove the old get token path
+as it was just for testing with a predetermined providerID.
+
+Added the authservice and its interface scoped to program.cs
+
+Authservices handles the registering of the user and creation
+of the overall id. JWT handles the tokenization.
+Library services manages models and privileges.
 
 
+# More work.
+
+I should also review the comments - I've been blindly
+working my way around them. Ignoring them.
+They were there as either reminders and markers for future change
+or explanations of current implementation.
+As they weren't pseudocode, I've not given them much thought
+once I started making changes.
+They were helpful when trying to understand some 
+implementations, though, so I still want to keep the structure.
+
+
+Tested the chain. We're creating a user.
+User persists in the database.
+user can input their username and password.
+We return a jwt for testing.
+The jwt is used to return borrowed books.
+
+Had to mess around with migrations which I still don't really
+understand, but it worked.
 
