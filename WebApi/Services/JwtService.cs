@@ -17,7 +17,7 @@ public class JwtService(
         ?? throw new InvalidOperationException(
             "JWT signing key is not configured.");
 
-    public Task<string?> GetIdentityProviderIdAsync()
+    public Task<Guid?> GetIdentityProviderIdAsync()
     {
         // The JWT is sent with each protected request in the Authorization header.
         var authHeader = httpContextAccessor.HttpContext?
@@ -27,7 +27,7 @@ public class JwtService(
         {
             // The client did not send an Authorization header,
             // so there is no JWT for us to validate.
-            return Task.FromResult<string?>(null);
+            return Task.FromResult<Guid?>(null);
         }
 
         // Remove "Bearer " so that only the JWT remains.
@@ -37,7 +37,7 @@ public class JwtService(
 
                 if (string.IsNullOrEmpty(token))
         {
-            return Task.FromResult<string?>(null);
+            return Task.FromResult<Guid?>(null);
         }
 
         // Validate the JWT signature using the key from User Secrets.
@@ -75,21 +75,25 @@ public class JwtService(
             var identityProviderId = principal.Claims
                 .FirstOrDefault(claim => claim.Type == "sub")
                 ?.Value;
-            
 
-            return Task.FromResult(identityProviderId);
+            if (!Guid.TryParse(identityProviderId, out var userId))
+            {
+                return Task.FromResult<Guid?>(null);
+            }
+
+            return Task.FromResult<Guid?>(userId);
         }
         catch (SecurityTokenException)
         {
             // Invalid signature or otherwise invalid JWT.
-            return Task.FromResult<string?>(null);
+            return Task.FromResult<Guid?>(null);
         }
     }
 
     // Creates a JWT containing the identity-provider ID.
     // The same signing key is used here and during validation,
     // so the API can later verify that this token was created with our key.
-    public string CreateToken(string identityProviderId)
+    public string CreateToken(Guid identityProviderId)
     {
         var key = new SymmetricSecurityKey(
             Encoding.UTF8.GetBytes(_signingKey));
@@ -100,7 +104,7 @@ public class JwtService(
 
         var claims = new[]
         {
-            new System.Security.Claims.Claim("sub", identityProviderId)
+            new System.Security.Claims.Claim("sub", identityProviderId.ToString())
         };
 
         var token = new JwtSecurityToken(

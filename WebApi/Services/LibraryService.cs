@@ -19,7 +19,7 @@ public class LibraryService : ILibraryService
         throw new NotImplementedException();
     }
 
-    public async Task<User?> GetUserByIdentityProviderIdAsync(string identityProviderId)
+    public async Task<User?> GetUserByIdentityProviderIdAsync(Guid identityProviderId)
     {
         return await _db.Users
             .Include(user => user.Books)
@@ -28,7 +28,7 @@ public class LibraryService : ILibraryService
     
     // Gets only the books currently borrowed by the specified user.
     // The identityProviderId will eventually come from the validated JWT.
-    public async Task<IEnumerable<Book>> GetBooksForUserAsync(string identityProviderId)
+    public async Task<IEnumerable<Book>> GetBooksForUserAsync(Guid identityProviderId)
     {
         var user = await _db.Users
             .Include(user => user.Books)
@@ -41,6 +41,8 @@ public class LibraryService : ILibraryService
 
         return user.Books;
     }
+
+
 
     public async Task<IEnumerable<Book>> GetBooksAsync()
     {

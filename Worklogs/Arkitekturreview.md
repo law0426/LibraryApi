@@ -1,5 +1,18 @@
 
 
+
+
+TODO:
+REMEMBER TO GET THE NEW EXCALIDRAW DIAGRAM FOR THE PROJECT.
+
+
+
+
+
+
+
+
+
 Immediately fristet til å bare dumpe alle problemene.
 
 
@@ -11,9 +24,9 @@ Even simpler: what could I change?
 
 
 
-Svakheter?
+Weaknesses?
 
-Trygghet?
+Security?
 I don't use the middleware - how much of an issue is that?
 Isn't the algorithm the same?
 Is there some sort of stamp of approval on those like cerficates?
@@ -159,7 +172,7 @@ The goal is to show your ability to evaluat trade-offs and not just choose the f
 Also, wouldn't alternative be solutions?
 A Location was not specified. Assume root.)
 
-I can write it in norwegian or english. The omportant part is the contents are clear and you can explain your decisions. it doesn't have to be long. Focus on the problem, alterntaives, the choice and the consequences.
+I can write it in norwegian or english. The important part is the contents are clear and you can explain your decisions. it doesn't have to be long. Focus on the problem, alternatives, the choice and the consequences.
 
 Why document the architectural decision?
 

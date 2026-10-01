@@ -77,9 +77,16 @@ Justification: I can't have done it correctly.
     The implementation comes after.
 
 ## Why?
-
+Because it makes the most sense.
 
 
 ## Consequences
+The user should no longer have to worry about manual input,
+the overall security should improve.
+and there should be fewer ... crashes? COLLIDES! that's the term!
+Fewer colliding duplicate codes.
 
-I
+
+
+
+

@@ -5,39 +5,47 @@ namespace WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class AuthController(IJwtService jwtService) : ControllerBase
+public class AuthController(
+    IJwtService jwtService,
+    IAuthService authService
+) : ControllerBase
 {
     private readonly IJwtService _jwtService = jwtService;
+    private readonly IAuthService _authService = authService;
 
-    // GET /Auth/token?identityProviderId=1234567890
-    //
-    // This endpoint represents our identity provider issuing a JWT.
-    //
-    // The identityProviderId is supplied directly for now because this
-    // is a learning project and we are acting as our own identity provider.
-    //
-    // IMPORTANT:
-    // In a real system, we would first authenticate the person requesting
-    // the token. We would NOT simply trust an ID supplied in the URL.
-    [HttpGet("token")]
-    public IActionResult GetToken([FromQuery] string identityProviderId)
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
-        // The caller must provide an identity-provider ID so that we know
-        // which user the JWT should represent.
-        if (string.IsNullOrWhiteSpace(identityProviderId))
+        var user = await _authService.RegisterUserAsync(
+            request.Name,
+            request.Password);
+
+        return Ok(new
         {
-            return BadRequest("identityProviderId is required.");
+            user.Id,
+            user.IdentityProviderId,
+            user.Name
+        });
+    }
+    [HttpPost("token")]
+    public async Task<IActionResult> GetToken([FromBody] LoginRequest request)
+    {
+        var user = await _authService.AuthenticateUserAsync(
+            request.Name,
+            request.Password);
+
+        if (user is null)
+        {
+            return Unauthorized();
         }
 
-        // JwtService is responsible for knowing how to construct and sign
-        // the JWT. AuthController only asks it to create the token.
-        var token = _jwtService.CreateToken(identityProviderId);
+        // User already has a generated IdentityProviderId.
+        var token = _jwtService.CreateToken(user.IdentityProviderId);
 
-        // Return the JWT to the client.
-        //
-        // The client can then send this token on later protected requests:
-        //
-        // Authorization: Bearer <JWT>
         return Ok(token);
     }
 }
+
+// Request body used when creating a new account.
+public record RegisterRequest(string Name, string Password);
+public record LoginRequest(string Name, string Password);

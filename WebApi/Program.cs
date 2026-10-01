@@ -36,6 +36,7 @@ builder.Services.AddScoped<ILibraryService, LibraryService>();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddHealthChecks();
 builder.Services.AddDbContext<LibraryDbContext>(options =>
     options.UseNpgsql(

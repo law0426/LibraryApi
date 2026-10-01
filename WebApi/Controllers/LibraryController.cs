@@ -54,17 +54,15 @@ public class LibraryController(
     [HttpGet("my-borrows")]
     public async Task<IActionResult> GetMyBorrows()
     {
-        // TODO: This currently only parses the JWT.
-        // Later, JwtService must also validate its signature before we trust "sub".
         var identityProviderId = await _jwtService.GetIdentityProviderIdAsync();
 
-        if (identityProviderId is null)
+        if (identityProviderId is not Guid userId)
         {
             return Unauthorized();
         }
 
         var books = await _libraryService
-            .GetBooksForUserAsync(identityProviderId);
+            .GetBooksForUserAsync(userId);
 
         return Ok(books);
     }
