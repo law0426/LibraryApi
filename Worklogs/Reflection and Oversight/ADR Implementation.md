@@ -103,3 +103,27 @@ I also feel like I immediately do, once reminded I could expand it with author a
 so there's still a data collection for input.
 But hey.
 
+Man there's a lot of things I'm adding to test this functionality... Wait I think I'm done implementing the actual important part lol?
+I'm now building a more thorough collection of data
+and behaviours
+to gain proper experience for how an API with users
+and authorization properly functions.
+
+This isn't technically required but definitely good for several
+reasons.
+
+due to the absolutely anemic initial draft I had for the API
+I've had to constantly update and adjust the feature set
+just to be able to properly test features
+since, obviously, in order to look up data
+I first need data to look up.
+at which point there's not that much difference
+between doing a lot of manual injection
+and creating a proper posting system.
+At which I might as well make the posting system
+for extra experience.
+
+I think I could also go back to trying more TDD for the
+remainder of this.
+
+
