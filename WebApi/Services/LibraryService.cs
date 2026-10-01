@@ -1,7 +1,9 @@
 namespace WebApi.Services;
+
 using Core.Models;
 using Data;
 using Microsoft.EntityFrameworkCore;
+using WebApi.DTOs;
 
 public class LibraryService : ILibraryService
 {
@@ -51,8 +53,10 @@ public class LibraryService : ILibraryService
         //Do we just make it .tolist();?
         return await _db.Books.ToListAsync();
     }
-    public async Task<Book> PostBookAsync(Book book)
+    public async Task<Book> PostBookAsync(CreateBookRequest request)
     {
+        var book = new Book(request.Title);
+
         _db.Books.Add(book);
         await _db.SaveChangesAsync();
 

@@ -97,3 +97,9 @@ The jwt is used to return borrowed books.
 Had to mess around with migrations which I still don't really
 understand, but it worked.
 
+
+Created a fairly pointless dto, but I need SOME experience with them.
+I also feel like I immediately do, once reminded I could expand it with author and genre and other things.
+so there's still a data collection for input.
+But hey.
+
